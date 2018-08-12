@@ -7,10 +7,10 @@ class Post extends Component {
 
     render() {
         return (
-            <Grid item xs={6} className="post" >
-            <img src={'https://upload.wikimedia.org/wikipedia/commons/5/58/NewYorkTimes.svg'} />
+            <Grid item md={6} className="post" >
+            <img className="logo" src={this.props.logo} />
             <h4 className="times">{this.props.title}</h4>
-            <img src={this.props.mediaurl} />
+            <img className="media" src={this.props.mediaurl} />
             <p className="date">{this.props.pubDate}</p>
             <p>{this.props.description}</p>
             </Grid>

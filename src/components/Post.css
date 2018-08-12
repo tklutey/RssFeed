@@ -9,6 +9,14 @@
     background-color: white;
 }
 
+.logo {
+    max-width: 200px;
+}
+
+.media {
+    max-width: 200px;
+}
+
 .times {
     font-style: italic;
     text-align: center

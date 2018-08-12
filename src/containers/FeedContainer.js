@@ -4,26 +4,19 @@ import './FeedContainer.css';
 import fetchRss from '../service/Rss';
 
 class FeedContainer extends Component {
-
-    sources = [
-        'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml'
-    ]
-
     constructor(props) {
         super(props);
         this.state = {
             feedList : []
         }
-        for (var i = 0; i < this.sources.length; i++) {
-            fetchRss(this.sources[i]).then((feed) => this.setState({feedList : feed}))
-        }
+        fetchRss().then((feed) => this.setState({feedList : feed}) )
     }
 
     render() {
-        var list = this.state.feedList
-        console.log(list)
+        var list = this.state.feedList;
+        var i = 0;
         const listItems = list.map((item) => 
-            <Post title={item.title} mediaurl={item.mediaurl} description={item.description} pubDate={item.pubDate}/>
+            <Post key={i++} title={item.title} mediaurl={item.mediaurl} description={item.description} pubDate={item.pubDate} logo={item.logo}/>
         );
         
         return (
