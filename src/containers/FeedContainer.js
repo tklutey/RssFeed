@@ -2,28 +2,39 @@ import React, { Component } from 'react';
 import Post from '../components/Post';
 import './FeedContainer.css';
 import fetchRss from '../service/Rss';
+import RotateLoader from 'react-spinners/RotateLoader';
 
 class FeedContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            feedList : []
+            feedList : [],
+            loading: false
         }
-        fetchRss().then((feed) => this.setState({feedList : feed}) )
     }
 
+    componentWillMount() {
+        this.setState({loading: true})
+        fetchRss().then((feed) => this.setState({feedList : feed, loading: false}) )
+    }
+
+
     render() {
-        var list = this.state.feedList;
         var i = 0;
-        const listItems = list.map((item) => 
+        const listItems = this.state.feedList.map((item) => 
             <Post key={i++} title={item.title} mediaurl={item.mediaurl} description={item.description} pubDate={item.pubDate} logo={item.logo}/>
         );
-        
+
         return (
-            <div className="feedList">
-                {listItems}
+            <div className="container">
+                <RotateLoader loading={this.state.loading}/>
+                <div className="feedList">
+                    {listItems}
+                </div>
             </div>
         )
+        
+
     }
 }
 
