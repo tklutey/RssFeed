@@ -26,10 +26,13 @@ class FeedContainer extends Component {
         );
 
         return (
-            <div className="container">
-                <RotateLoader loading={this.state.loading}/>
-                <div className="feedList">
-                    {listItems}
+            <div className="horizontal-center">
+                <h1 > HeadLine </h1>
+                <div className="container">
+                    <RotateLoader loading={this.state.loading}/>
+                    <div className="horizontal-center">
+                        {listItems}
+                    </div>
                 </div>
             </div>
         )

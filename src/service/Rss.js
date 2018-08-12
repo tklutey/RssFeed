@@ -8,6 +8,7 @@ let parser = new Parser({
         },
         item: [
           ['media:content', 'media'],
+          ['media:thumbnail', 'media'],
           ['description', 'description']
         ]
       }
