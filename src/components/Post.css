@@ -1,0 +1,25 @@
+.post {
+    border-style: solid;
+    margin: 15px !important;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
+}
+
+.times {
+    font-style: italic;
+    text-align: center
+}
+
+.date {
+    font-style: italic;
+    color: gray;
+}
+
+.post:hover {
+    background-color:lightgray;
+    cursor:pointer;
+}
